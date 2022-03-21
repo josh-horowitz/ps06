@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/josh-horowitz/ps06.git/static/css/main.073c9b0a.css",
-    "main.js": "/josh-horowitz/ps06.git/static/js/main.a44db91e.js",
-    "static/js/787.770856bb.chunk.js": "/josh-horowitz/ps06.git/static/js/787.770856bb.chunk.js",
-    "static/media/logo.svg": "/josh-horowitz/ps06.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/josh-horowitz/ps06.git/index.html",
-    "main.073c9b0a.css.map": "/josh-horowitz/ps06.git/static/css/main.073c9b0a.css.map",
-    "main.a44db91e.js.map": "/josh-horowitz/ps06.git/static/js/main.a44db91e.js.map",
-    "787.770856bb.chunk.js.map": "/josh-horowitz/ps06.git/static/js/787.770856bb.chunk.js.map"
+    "main.css": "/ps06/static/css/main.073c9b0a.css",
+    "main.js": "/ps06/static/js/main.484518d1.js",
+    "static/js/787.770856bb.chunk.js": "/ps06/static/js/787.770856bb.chunk.js",
+    "static/media/logo.svg": "/ps06/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/ps06/index.html",
+    "main.073c9b0a.css.map": "/ps06/static/css/main.073c9b0a.css.map",
+    "main.484518d1.js.map": "/ps06/static/js/main.484518d1.js.map",
+    "787.770856bb.chunk.js.map": "/ps06/static/js/787.770856bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.a44db91e.js"
+    "static/js/main.484518d1.js"
   ]
 }
