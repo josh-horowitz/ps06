@@ -13,7 +13,7 @@ function App() {
 
   return (
       <main className="container">
-        <h1 className="row">Rhyme Finder (579 Problem Set 5)</h1>
+        <h1 className="row">Rhyme Finder (579 Problem Set 6)</h1>
         <div className="row">
             Saved Words: <SavedWords
                 savedWords={savedWords}
