@@ -19,8 +19,7 @@ const RhymeItem = (props) => {
     }
     return(
         <li>
-            {rhyme}
-            <button onClick={addSavedWords}>
+            {rhyme} <button onClick={addSavedWords}>
                 Save
             </button>
         </li>

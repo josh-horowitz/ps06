@@ -8,8 +8,10 @@ function App() {
 
     const [outputList, setOutputList] = useState([])
     const [wordValue, setWordValue] = useState('')
+    const [inputValue, setInputValue] = useState('')
     const [savedWords, setSavedWords] = useState([])
     const [rhymeOrSyn, setRhymeOrSyn] = useState('')
+    const [resultStatus, setResultStatus] = useState('')
 
   return (
       <main className="container">
@@ -22,24 +24,30 @@ function App() {
           <div className="row">
               <InputGroup
                   setOutputList={setOutputList}
-                  wordValue={wordValue}
                   setWordValue={setWordValue}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
                   setRhymeOrSyn={setRhymeOrSyn}
+                  setResultStatus={setResultStatus}
               />
           </div>
           <div>
-              <h2>{rhymeOrSyn ? (rhymeOrSyn==='rhyme' ? 'Words that rhymes with ' : ' Words that have a similar meaning to ') + wordValue: ''}</h2>
+              <h2>{rhymeOrSyn ? (rhymeOrSyn==='rhyme' ? 'Words that rhymes with ' : 'Words with a similar meaning to ') + wordValue: ''}</h2>
           </div>
-        <div className="output row">
-            {Object.keys(outputList).map((item) =>
+          <div>
+              <h2>{resultStatus}</h2>
+          </div>
+        <div className="output row">{outputList.length > 0 ?
+            Object.keys(outputList).map((item) =>
                 <SyllableGroup
+                    rhymeOrSyn={rhymeOrSyn}
                     syllables={item}
                     key={item}
                     outputList={outputList[item]}
                     savedWords={savedWords}
                     setSavedWords={setSavedWords}
                 />
-            )}
+            ) : <h3>No Results</h3>}
         </div>
       </main>
   );

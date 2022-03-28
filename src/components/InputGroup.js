@@ -1,9 +1,11 @@
 
 const InputGroup = (props) => {
     const {setOutputList} = props;
-    const {wordValue} = props;
     const {setWordValue} = props;
+    const {inputValue} = props;
+    const {setInputValue} = props;
     const {setRhymeOrSyn} = props;
+    const {setResultStatus} = props;
 
 
     /**
@@ -83,17 +85,22 @@ const InputGroup = (props) => {
     }
 
     function getRhymes(){
-        if (wordValue){
-            setRhyme()
-            datamuseRequest(getDatamuseRhymeUrl(wordValue), (results) => {
+        setResultStatus('Loading......');
+        if (inputValue){
+            setWordValue(inputValue);
+            setRhyme();
+            datamuseRequest(getDatamuseRhymeUrl(inputValue), (results) => {
+                setResultStatus('')
                 if (results.length > 0){
                     setOutputList(() => {
                         return groupBy(results, 'numSyllables');
                     })
+                }else{
+                    setOutputList([]);
                 }
             })
         }
-
+        setInputValue('');
     }
 
     function setRhyme() {
@@ -103,16 +110,23 @@ const InputGroup = (props) => {
     }
 
     function getSynonyms(){
-        if (wordValue){
+        setResultStatus('Loading........');
+        if (inputValue){
+            setWordValue(inputValue);
             setSyn()
-            datamuseRequest(getDatamuseSimilarToUrl(wordValue), (results) => {
+            datamuseRequest(getDatamuseSimilarToUrl(inputValue), (results) => {
+                setResultStatus('')
                 if (results.length > 0){
                     setOutputList(() => {
-                        return results;
+                        return groupBy(results, 'numSyllables');
                     })
+                }else{
+                    setOutputList([]);
                 }
             })
+
         }
+        setInputValue('');
     }
 
     function setSyn(){
@@ -123,6 +137,7 @@ const InputGroup = (props) => {
 
     const keyDownHandler = (e) => {
         if (e.key === 'Enter') {
+            setWordValue(inputValue)
             getRhymes()
         }
     }
@@ -130,12 +145,12 @@ const InputGroup = (props) => {
         <div className="row">
             <div className="input-group col">
                 <input
-                    value={wordValue}
+                    value={inputValue}
                     className="form-control"
                     type="text"
                     placeholder="Enter a word"
                     id="word_input"
-                    onChange={(e) => setWordValue(e.target.value)}
+                    onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={keyDownHandler}
                 />
                 <button

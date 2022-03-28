@@ -2,6 +2,7 @@ import RhymeItem from "./RhymeItem";
 
 const SyllableGroup = (props) => {
 
+    const {rhymeOrSyn} = props;
     const {syllables} = props;
     const {outputList} = props;
     const {savedWords} = props;
@@ -9,7 +10,7 @@ const SyllableGroup = (props) => {
 
     return (
         <div>
-            <h3>Syllables: {syllables}</h3>
+            <h3>{rhymeOrSyn === 'rhyme' ? 'Syllables: ' + syllables : ''}</h3>
             {outputList.map((item) =>
                 <RhymeItem
                     rhyme={item.word}
